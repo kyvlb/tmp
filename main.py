@@ -1,5 +1,8 @@
 import telebot
-bot = telebot.TeleBot('1536625046:AAHGFNxQEvhiBICq0qoZZSCcPV5Azj8m3bs')
+import os
+import settings
+
+bot = telebot.TeleBot(os.getenv("BOT_TOKEN"))
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     bot.reply_to(message, f'Я бот, который поможет вам с опросами(голосованиями). Приятно познакомиться, {message.from_user.first_name}. Напишите команду "/help", чтобы узнать подробности работы с ботом')
@@ -16,8 +19,6 @@ def create_command(message):
 def enough_command(message):
     bot.reply_to(message, f'Голосование готово')
 
-@bot.message_handler(content_types=['text'])
-def get_text_messages(message):
-    bot.send_message(message.from_user.id, 'Хорошо, теперь введите варианты ответов поочерёдно, когда ответы закончатся введите команду "/enough"')
+
 
 bot.polling(none_stop=True)
