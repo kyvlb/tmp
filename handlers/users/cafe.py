@@ -9,10 +9,9 @@ from aiogram.types import Message, CallbackQuery
 
 from keyboards.inline.choice_buttons import choice, p_keyboard
 from loader import dp
-from states.cafe import Test
 
 
-@dp.message_handler(Command("poll"))
+@dp.message_handler(Command("cafe"))
 async def show_items(message: Message):
     await message.answer(text="Hard Rock Cafe \n"
                               "Выберете необходиммый пункт",

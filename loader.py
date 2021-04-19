@@ -14,5 +14,5 @@ logging.basicConfig(format=u'%(filename)s [LINE:%(lineno)d] #%(levelname)-8s [%(
                     level=logging.INFO,)
 loop = asyncio.get_event_loop()
 
-bd = dp.loop.run_until_complete(create_pool())
+
 
