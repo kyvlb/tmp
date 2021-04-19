@@ -1,5 +1,5 @@
-from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from data import config
+# from aiogram.contrib.fsm_storage.memory import MemoryStorage
+# from data import config
 
 from loader import dp, bot
 from utils.notify_admins import on_startup_notify

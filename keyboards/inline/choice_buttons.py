@@ -1,43 +1,72 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from data.config import URL_RED, URL_BLUE
-from keyboards.inline.callback_datas import choice_callback
+from data.config import URL_menu
+from keyboards.inline.callback_datas import choice_callback, otsuv_callback
 
 # choice = InlineKeyboardMarkup(
 #     inline_keyboard=[
 #         [
-#             InlineKeyboardButton(text="Красная", callback_data=choice_callback.new(choice_name="red", number_of_people=3)),
-#             InlineKeyboardButton(text="Синяя", callback_data=choice_callback.new(choice_name="blue", number_of_people=0)),
+#             InlineKeyboardButton(text="1",
+#                                  callback_data="choice:1"),
 #         ],
 #         [
-#             InlineKeyboardButton(text="Получить результаты опроса", callback_data="cancel")
-#         ]
+#             InlineKeyboardButton(text="2",
+#                                  callback_data="choice:2"),
+#         ],
+#         [
+#             InlineKeyboardButton(text="3",
+#                                  callback_data="choice:3"),
+#         ],
+#         [
+#             InlineKeyboardButton(text="4",
+#                                  callback_data="choice:4"),
+#         ],
+#         [
+#             InlineKeyboardButton(text="5",
+#                                  callback_data="choice:5"),
+#         ],
+#
 #     ]
 # )
 
-choice = InlineKeyboardMarkup(row_width=2)
+choice = InlineKeyboardMarkup(row_width=5)
 
-buy_pear = InlineKeyboardButton(text="Красная", callback_data=choice_callback.new(choice_name="red", number_of_people=1))
-choice.insert(buy_pear)
+choice1 = InlineKeyboardButton(text="1", callback_data="choice:1:3")
+choice.insert(choice1)
 
-buy_apples = InlineKeyboardButton(text="Синяя", callback_data="choice:red:3")
-choice.insert(buy_apples)
+choice2 = InlineKeyboardButton(text="2", callback_data="choice:2:3")
+choice.insert(choice2)
 
-cancel_button = InlineKeyboardButton(text="Получить результаты опроса", callback_data="cancel")
-choice.insert(cancel_button)
+choice3 = InlineKeyboardButton(text="3", callback_data="choice:3:3")
+choice.insert(choice3)
 
-red_keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-            InlineKeyboardButton(text="Добро пожаловать. Жми, чтобы перейти", url=URL_RED)
-        ]
-    ]
-)
+choice4 = InlineKeyboardButton(text="4", callback_data="choice:4:3")
+choice.insert(choice4)
 
-blue_keyboard = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-            InlineKeyboardButton(text="Хороший выбор. Жми, чтобы перейти", url=URL_BLUE)
-        ]
-    ]
-)
+choice5 = InlineKeyboardButton(text="5", callback_data="choice:5:3")
+choice.insert(choice5)
+
+p_keyboard = InlineKeyboardMarkup(row_width=3)
+
+menu = InlineKeyboardButton(text="Меню", url=URL_menu)
+p_keyboard.insert(menu)
+
+otsuv = InlineKeyboardButton(text="Оставить отзыв", callback_data="otsuv:feedback")
+p_keyboard.insert(otsuv)
+
+chek = InlineKeyboardButton(text="Посмотреть отзывы", callback_data="otsuv:chek")
+p_keyboard.insert(chek)
+
+# p_keyboard = InlineKeyboardMarkup(
+#     inline_keyboard=[
+#         [
+#             InlineKeyboardButton(text="Меню", url=URL_menu),
+#         ],
+#         [
+#             InlineKeyboardButton(text="Оставить отзыв", reply_markup=choice),
+#         ],
+#         [
+#             InlineKeyboardButton(text="Посмотреть отзывы"),
+#         ],
+#     ]
+# )

@@ -9,7 +9,7 @@ async def bot_help(message: types.Message):
     text = ("Список команд: ",
             "/start - Для начала диалога",
             "/help - Список команд",
-            "/poll - Создать голосование",
+            "/poll - ",
             )
 
     await message.answer("\n".join(text))
